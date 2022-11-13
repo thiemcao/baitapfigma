@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính tổng các số nguyên tố trong khoảng</h1>
+    <div>Số a</div>
+    <input type="text" id="numa" />
+    <div>số b</div>
+    <input type="text" id="numb" />
+    <div id="result"></div>
+    <input type="button" onclick="sum()" value="Tính tổng" />
+    <script>
+      function sum() {
+        let a = Number(document.getElementById("numa").value);
+        let b = Number(document.getElementById("numb").value);
+        let sum;
+        if (a >= b) {
+          document.write("Đầu vào không hợp lệ, số a không nhỏ hơn số b");
+        }
+        if (a < b) {
+          for (i = a + 1; i < b; i++) {
+            let prime = true;
+            if (i < 2) {
+              prime = false;
+            }
+            for (j = 2; j <= i / 2; j++) {
+              if (i % j == 0) {
+                prime = false;
+              }
+            }
+            if (prime == true) {
+              sum += i;
+            }
+          }
+          document.getElementById("result").innerHTML = sum;
+        }
+      }
+    </script>
+  </body>
+</body>
+</html>
